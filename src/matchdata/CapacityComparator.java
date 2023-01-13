@@ -1,13 +1,14 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
+
 package matchdata;
 
-/**
- *
- * @author Faruk
- */
-public class CapacityComparator {
+import java.util.Comparator;
+
+public class CapacityComparator implements Comparator <Model> {
+    @Override
+    public int compare(Model o1, Model o2) {
+        return Long.compare(o1.getCapacityStadium(), o2.getCapacityStadium());
+     
     
+    }
 }
+

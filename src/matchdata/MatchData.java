@@ -110,7 +110,7 @@ public class MatchData {
                         
                 matchList.add(new Model(startDate,home,away,
                              countryHome,countryAway,
-                             stadium,highestPossibility,possibilityDouble));
+                             stadium,highestPossibility,possibilityDouble,capacityStadium));
 
                 
                 
@@ -118,13 +118,14 @@ public class MatchData {
                 }
             int number,loop=0,option=5;
             Scanner scan = new Scanner(System.in);
-            while(option < 1 || option > 2){
+            while(option < 1 || option > 4){
             if (loop>0) System.out.println("Please write 1 to 4");
             
             System.out.println("""
                                Press 1 for Sort by Value
-                               Press 2 for Sort by Alphabetical
-                               """);
+                               Press 2 for Sort by Alphabetical (Home)
+                               Press 3 for Sort by Alphabetical (Away)
+                               Press 4 for Sort by Stadium Capacity""");
                                
             option = scan.nextInt();
             loop += 1;
@@ -152,14 +153,39 @@ public class MatchData {
                         for(int i = 0; i < size-number; i++){
                             matchList.remove(0);
                     }
-                   
                     matchList.sort(new AlphabeticalComparator());          
                     for(int i = 0; i < number;i++){
                     matchList.get(i).showInfos();}}
                     else System.out.println("invalid value. (Value can't be more than " + matchList.size() + " and can't be negative. )");
                     break;
                 
-                
+                case 3:
+                    if(number<=matchList.size() && number>0){
+                        matchList.sort(new ValueComparator());
+                        int size = matchList.size();
+                        for(int i = 0; i < size-number; i++){
+                            matchList.remove(0);
+                    }
+                   
+                    matchList.sort(new AlphabeticalComparator());          
+                    for(int i = 0; i < number;i++){
+                    matchList.get(i).showInfos();}}
+                    else System.out.println("invalid value. (Value can't be more than " + matchList.size() + " and can't be negative. )");
+                    break;
+                case 4:
+                    if(number<=matchList.size() && number>0){
+                        matchList.sort(new ValueComparator());
+                        int size = matchList.size();
+                        for(int i = 0; i < size-number; i++){
+                            matchList.remove(0);
+                    }
+                   
+                    matchList.sort(new CapacityComparator());
+                    Collections.reverse(matchList);
+                    for(int i = 0; i < number;i++){
+                    matchList.get(i).showInfosWithCapacity();}}
+                    else System.out.println("invalid value. (Value can't be more than " + matchList.size() + " and can't be negative. )");
+                    break;          
                 }
              
         

@@ -9,10 +9,13 @@ public class Model {
     private String stadium;
     private String highestPossibility;
     private double doublePossibility;
+    private long capacityStadium;
+
+   
 
     
     
-    public Model(String date, String homeTeam, String awayTeam,String homeCountry, String awayCountry, String stadium, String highestPossibility, double doublePossibility){
+    public Model(String date, String homeTeam, String awayTeam,String homeCountry, String awayCountry, String stadium, String highestPossibility, double doublePossibility, long capacityStadium){
         this.date = date;
         this.homeTeam = homeTeam;
         this.awayTeam = awayTeam;
@@ -21,6 +24,7 @@ public class Model {
         this.stadium = stadium;
         this.highestPossibility = highestPossibility;
         this.doublePossibility = doublePossibility;
+        this.capacityStadium = capacityStadium; 
         
 
     
@@ -86,10 +90,17 @@ public class Model {
     public void setDoublePossibility(double doublePossibility) {
         this.doublePossibility = doublePossibility;
     }
+     public long getCapacityStadium() {
+        return capacityStadium;
+    }
+
+    public void setCapacityStadium(int capacityStadium) {
+        this.capacityStadium = capacityStadium;
+    }
     @Override
     public String toString() {
         String possibilityDouble = null;
-        return "Matches{" + "date=" + date + ", homeTeam=" + homeTeam + ", awayTeam=" + awayTeam + ", homeCountry=" + homeCountry + ", awayCountry=" + awayCountry + ", stadium=" + stadium + ", highestPossibility=" + highestPossibility + ", possibilityDouble=" + possibilityDouble + '}';
+        return "Matches{" + "date=" + date + ", homeTeam=" + homeTeam + ", awayTeam=" + awayTeam + ", homeCountry=" + homeCountry + ", awayCountry=" + awayCountry + ", stadium=" + stadium + ", highestPossibility=" + highestPossibility + ", possibilityDouble=" + possibilityDouble + "capacityStadium="+ capacityStadium + '}';
     }
 
    
@@ -100,4 +111,13 @@ public class Model {
         System.out.println("The highest possibility : " + this.highestPossibility );
         System.out.println("");
     }
+       public void showInfosWithCapacity(){
+        System.out.print(this.homeTeam + "(" + this.homeCountry + ")" + " vs ");
+        System.out.println(this.awayTeam + "(" + this.awayCountry + ")");
+        System.out.println("Venue : " + this.stadium);
+        System.out.println("Highest probable result : " + this.highestPossibility );
+        System.out.println("Capacity: " + this.capacityStadium);
+        System.out.println("");
+    }
+
 }

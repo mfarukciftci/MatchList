@@ -86,6 +86,11 @@ public class Model {
     public void setDoublePossibility(double doublePossibility) {
         this.doublePossibility = doublePossibility;
     }
+    @Override
+    public String toString() {
+        String possibilityDouble = null;
+        return "Matches{" + "date=" + date + ", homeTeam=" + homeTeam + ", awayTeam=" + awayTeam + ", homeCountry=" + homeCountry + ", awayCountry=" + awayCountry + ", stadium=" + stadium + ", highestPossibility=" + highestPossibility + ", possibilityDouble=" + possibilityDouble + '}';
+    }
 
    
     public void showInfos(){
